@@ -33,8 +33,11 @@ class ListPosts extends React.Component {
                 <br />
                 <span>{post.posttext}</span>
               </p>
-              <Link to={"/edit/" + post._id} className="btn btn-primary">
+              <Link to={"/edit/" + post._id} className="btn btn-primary mr-1">
                 Edit
+              </Link>
+              <Link to={"/delete/" + post._id} className="btn btn-danger">
+                Delete
               </Link>
             </div>
           ))}

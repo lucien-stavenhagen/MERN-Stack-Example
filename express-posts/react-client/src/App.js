@@ -5,47 +5,31 @@ import ListPosts from "./components/ListPosts";
 import CreatePost from "./components/CreatePost";
 import EditPost from "./components/EditPost";
 import DeletePost from "./components/DeletePost";
+import DeleteConfirmed from "./components/DeleteConfirmed";
+import EditConfirmed from "./components/EditConfirmed";
 
 class App extends React.Component {
   render() {
     return (
       <Router>
         <div className="container">
-          <nav className="navbar navbar-expand-sm navbar-dark bg-dark">
-            <Link to="/" className="navbar-brand">
-              Posts app
-            </Link>
-            <button
-              className="navbar-toggler"
-              type="button"
-              data-toggle="collapse"
-              data-target="#navbarNav"
-              aria-controls="navbarNav"
-              aria-expanded="false"
-              aria-label="Toggle navigation"
-            >
-              <span className="navbar-toggler-icon" />
-            </button>
-            <div className="collapse navbar-collapse" id="navbarNav">
-              <ul className="navbar-nav ml-auto">
-                <li className="navbar-item">
-                  <Link to="/" className="nav-link">
-                    List Posts
-                  </Link>
-                </li>
-                <li className="navbar-item">
-                  <Link to="/create" className="nav-link">
-                    Create Post
-                  </Link>
-                </li>
-              </ul>
+          <div className="card">
+            <div className="button-group btn-group-lg">
+              <Link to="/" className="btn btn-primary">
+                Posts App Home
+              </Link>
+              <Link to="/create" className="btn btn-warning">
+                Create New Post
+              </Link>
             </div>
-          </nav>
+          </div>
         </div>
         <Route path="/" exact component={ListPosts} />
         <Route path="/create" component={CreatePost} />
         <Route path="/edit/:id" component={EditPost} />
         <Route path="/delete/:id" component={DeletePost} />
+        <Route path="/delconfirmed" component={DeleteConfirmed} />
+        <Route path="/editconfirmed" component={EditConfirmed} />
       </Router>
     );
   }

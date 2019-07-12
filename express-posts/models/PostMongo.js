@@ -5,7 +5,7 @@ const postSchema = new mongoose.Schema({
   _id: mongoose.Schema.Types.ObjectId,
   title: String,
   author: String,
-  date: Date,
+  date: String,
   category: String,
   posttext: String
 });
@@ -17,7 +17,7 @@ const initPost = request => {
     _id: mongoose.Types.ObjectId(),
     title: request.body.title,
     author: request.body.author,
-    date: new Date(),
+    date: new Date().toLocaleString(),
     category: request.body.category ? request.body.category : "general",
     posttext: request.body.posttext
   };

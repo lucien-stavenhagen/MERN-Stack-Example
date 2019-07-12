@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
+
 import axios from "axios";
 
 class CreatePost extends Component {
@@ -34,7 +36,7 @@ class CreatePost extends Component {
   };
   handleCategory = event => {
     this.setState({
-      category: event.target.value ? event.target.value : "general"
+      category: event.target.value
     });
   };
   handlePosttext = event => {
@@ -88,9 +90,12 @@ class CreatePost extends Component {
           <div className="form-group">
             <input
               type="submit"
-              className="btn btn-primary"
+              className="btn btn-primary mr-1"
               value="Submit Post"
             />
+            <Link to="/" className="btn btn-secondary">
+              Done
+            </Link>
           </div>
         </form>
       </div>

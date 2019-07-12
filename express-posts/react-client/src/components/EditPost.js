@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
 import axios from "axios";
 
 export default class EditPost extends Component {
@@ -45,7 +46,7 @@ export default class EditPost extends Component {
   };
   handleCategory = event => {
     this.setState({
-      category: event.target.value ? event.target.value : "general"
+      category: event.target.value
     });
   };
   handlePosttext = event => {
@@ -55,6 +56,7 @@ export default class EditPost extends Component {
     event.preventDefault();
     console.log("submitting this post: " + JSON.stringify(this.state));
     this.updatePost();
+    this.props.history.push("/editconfirmed");
   };
   render() {
     return (
@@ -98,9 +100,12 @@ export default class EditPost extends Component {
           <div className="form-group">
             <input
               type="submit"
-              className="btn btn-primary"
+              className="btn btn-primary mr-1"
               value="Update Post"
             />
+            <Link to="/" className="btn btn-secondary">
+              Cancel
+            </Link>
           </div>
         </form>
       </div>
