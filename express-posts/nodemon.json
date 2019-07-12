@@ -1,0 +1,6 @@
+{
+  "env": {
+    "CROSS_ORIGIN": "true",
+    "PORT": 4001
+  }
+}
