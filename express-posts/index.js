@@ -7,9 +7,9 @@ const PORT = process.env.PORT || 4000;
 
 // connect to mongodb out in atlas
 // hoist creds out to make it easier to update
-const username = "lstavenhagen";
-const password = "lstavenhagen";
-const dbname = "expresstest";
+const username = "yourusername";
+const password = "yourpassword";
+const dbname = "yourdbname";
 
 // connect to mongodb out on atlas
 mongoose.connect(
