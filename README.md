@@ -1,7 +1,7 @@
 # MERN-Stack-Example
-Basic Posts app using the MERN stack, just to tutor myself in how to do it.
+Basic Posts app using the MERN stack. Part of my ongoing self-tutorials in website/web app development.
 
-Basic fully CRUD enabled self-tutorial app using the MERN stack:
+Basic fully CRUD enabled app using the MERN stack (authentication TBD):
 - MongoDB Atlas
 - Mongoose ODM for MongoDB modeling
 - Node.js JavaScript runtime
