@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
+import utils from "../../utils/utils";
 
 export default class DeletePost extends Component {
   constructor(props) {
@@ -8,13 +9,16 @@ export default class DeletePost extends Component {
     this.proxyurl = "http://localhost:4001/api/posts";
   }
   yesImSure = () => {
+    const auth_token = localStorage.getItem(utils.auth_token_name);
     axios
-      .delete(this.proxyurl + "/delete/" + this.props.match.params.id)
+      .delete(this.proxyurl + "/delete/" + this.props.match.params.id, {
+        headers: { authorization: `Bearer ${auth_token}` }
+      })
       .then(res => {
         console.log("deleted post :" + res);
+        this.props.history.push("/delconfirmed");
       })
       .catch(err => console.log("HOMEY ERROR: " + err));
-    this.props.history.push("/delconfirmed");
   };
   render() {
     return (
