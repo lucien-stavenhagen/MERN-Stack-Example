@@ -39,9 +39,11 @@ exports.user_login = (request, response, next) => {
   User.findOne({ username: request.body.username })
     .then(doc => {
       if (doc === null) {
-        response
-          .status(401)
-          .json({ msg: "auth failed, user not in DB", token: null });
+        response.status(401).json({
+          msg: "auth failed, user not in DB",
+          token: null,
+          username: null
+        });
       } else {
         bcrypt
           .compare(request.body.password, doc.password)
@@ -55,28 +57,38 @@ exports.user_login = (request, response, next) => {
                   if (err) {
                     response.status(400).json({
                       msg: "auth failed err in jwt.sign()",
-                      token: null
+                      token: null,
+                      username: null
                     });
                   } else {
-                    response.json({ msg: "auth ok", token: jwttoken });
+                    response.json({
+                      msg: "auth ok",
+                      token: jwttoken,
+                      username: request.body.username
+                    });
                   }
                 }
               );
             } else {
-              response
-                .status(401)
-                .json({ msg: "auth failed, passwords mismatch", token: null });
+              response.status(401).json({
+                msg: "auth failed, passwords mismatch",
+                token: null,
+                username: null
+              });
             }
           })
           .catch(err =>
             response.status(401).json({
               msg: "auth failed, problem in bcrypt.compare()",
-              token: null
+              token: null,
+              username: null
             })
           );
       }
     })
     .catch(err =>
-      response.status(401).json({ msg: "auth failed in find", token: null })
+      response
+        .status(401)
+        .json({ msg: "auth failed in find", token: null, username: null })
     );
 };

@@ -6,7 +6,7 @@ export default function NewUserSuccess() {
     <div className="container">
       <div className="jumbotron text-center">
         <h3>You are now signed up! Please login now</h3>
-        <Link to="/" className="btn btn-primary m-1">
+        <Link to="/login" className="btn btn-primary m-1">
           Back To Login
         </Link>
       </div>

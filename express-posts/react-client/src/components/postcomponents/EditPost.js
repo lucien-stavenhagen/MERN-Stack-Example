@@ -1,11 +1,12 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
+import utils from "../../utils/utils";
 
 export default class EditPost extends Component {
   constructor(props) {
     super(props);
-    this.proxyurl = "http://localhost:4001/api/posts";
+    this.proxyurl = `${utils.proxyurl_api}/posts`;
     this.state = {
       title: "",
       author: "",
@@ -33,10 +34,15 @@ export default class EditPost extends Component {
       category: this.state.category,
       posttext: this.state.posttext
     };
-    axios
-      .patch(this.proxyurl + "/edit/" + this.props.match.params.id, updated)
-      .then(res => console.log("post updated. status: " + res))
-      .catch(err => console.log("HOMEY UPDATE ERROR: " + err));
+    const auth_token = JSON.parse(localStorage.getItem(utils.auth_token_name));
+    if (auth_token !== null) {
+      axios
+        .patch(this.proxyurl + "/edit/" + this.props.match.params.id, updated, {
+          headers: { authorization: `Bearer ${auth_token.token}` }
+        })
+        .then(res => console.log("post updated. status: " + res))
+        .catch(err => console.log("HOMEY UPDATE ERROR: " + err));
+    }
   };
   handleTitle = event => {
     this.setState({ title: event.target.value });

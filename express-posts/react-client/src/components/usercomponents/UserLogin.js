@@ -17,8 +17,11 @@ export default class UserLogin extends Component {
     axios
       .post(`${this.proxyurl}${addstub}`, this.state)
       .then(res => {
-        console.log(res.data.token);
-        localStorage.setItem(utils.auth_token_name, res.data.token);
+        const auth_data = {
+          username: this.state.username,
+          token: res.data.token
+        };
+        localStorage.setItem(utils.auth_token_name, JSON.stringify(auth_data));
         this.props.history.push("/");
       })
       .catch(err => {

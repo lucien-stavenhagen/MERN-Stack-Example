@@ -9,12 +9,14 @@ class ListPosts extends React.Component {
     this.proxyurl = `${utils.proxyurl_api}/posts`;
     this.state = {
       data: [],
-      loggedin: true
+      loggedin: true,
+      username: ""
     };
   }
   componentDidMount() {
-    if (localStorage.getItem(utils.auth_token_name) !== null) {
-      this.setState({ loggedin: true });
+    const auth_info = JSON.parse(localStorage.getItem(utils.auth_token_name));
+    if (auth_info !== null) {
+      this.setState({ loggedin: true, username: auth_info.username });
     } else {
       this.setState({ loggedin: false });
     }
@@ -31,7 +33,12 @@ class ListPosts extends React.Component {
     let delete_post_button;
 
     if (this.state.loggedin) {
-      log_button = <Link to="/logoff">Logoff</Link>;
+      log_button = (
+        <div>
+          <p>{this.state.username} logged in</p>
+          <Link to="/logoff">Logoff</Link>
+        </div>
+      );
       new_post_button = (
         <button className="btn btn-warning">Create New Post</button>
       );
