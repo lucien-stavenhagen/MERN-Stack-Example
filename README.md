@@ -1,4 +1,6 @@
 # MERN-Stack-Example
+NOTE: this branch adds authentication using JWT. The sensitive routes are protected in the Express back end and the React front end now has a login and new user components. Only one user at a time can be logged in and the JWT token returned by the backend is stored in localStorage.
+
 Basic Posts app using the MERN stack, just to tutor myself in how to do it.
 
 Basic fully CRUD enabled self-tutorial app using the MERN stack:
