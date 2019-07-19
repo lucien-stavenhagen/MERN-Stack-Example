@@ -60,6 +60,9 @@ class CreatePost extends Component {
   render() {
     return (
       <div className="container">
+        <div className="jumbotron text-center m-0">
+          <h1>Create New Post</h1>
+        </div>
         <form onSubmit={this.handleSubmit}>
           <div className="form-group">
             <label>Title:</label>
