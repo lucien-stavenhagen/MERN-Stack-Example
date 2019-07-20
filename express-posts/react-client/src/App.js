@@ -12,6 +12,7 @@ import UserLogoff from "./components/usercomponents/UserLogoff";
 import NewUser from "./components/usercomponents/NewUser";
 import LoginFailed from "./components/usercomponents/LoginFailed";
 import NewUserSuccess from "./components/usercomponents/NewUserSuccess";
+import SinglePost from "./components/postcomponents/SinglePost";
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
       <Route path="/create" component={CreatePost} />
       <Route path="/edit/:id" component={EditPost} />
       <Route path="/delete/:id" component={DeletePost} />
+      <Route path="/single/:id" component={SinglePost} />
       <Route path="/delconfirmed" component={DeleteConfirmed} />
       <Route path="/editconfirmed" component={EditConfirmed} />
       <Route path="/loginfailed" component={LoginFailed} />

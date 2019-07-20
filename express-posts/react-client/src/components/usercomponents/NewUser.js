@@ -1,10 +1,11 @@
 import React, { Component } from "react";
 import axios from "axios";
+import utils from "../../utils/utils";
 
 export default class NewUser extends Component {
   constructor(props) {
     super(props);
-    this.proxyurl = "http://localhost:4001/api/users";
+    this.proxyurl = `${utils.proxyurl_api}/users`;
     this.state = {
       username: "",
       password: ""

@@ -68,7 +68,7 @@ class ListPosts extends React.Component {
     }
     return (
       <div className="container">
-        <div className="jumbotron text-center m-0">
+        <div className="border jumbotron text-center m-0">
           <Link to="/">
             <h1>Homey Blog</h1>
           </Link>
@@ -77,10 +77,12 @@ class ListPosts extends React.Component {
         <div className="button-group btn-group-lg">
           <Link to="/create">{new_post_button}</Link>
         </div>
-        <div className="card">
+        <div className="shadow card">
           {this.state.data.map(post => (
-            <div key={post._id} className="card-body">
-              <h5 className="card-title">{post.title}</h5>
+            <div key={post._id} className="border card-body m-1">
+              <Link to={"/single/" + post._id}>
+                <h5 className="card-title">{post.title}</h5>
+              </Link>
               <p className="card-text">
                 <span>
                   by: {post.author} on {post.date}
