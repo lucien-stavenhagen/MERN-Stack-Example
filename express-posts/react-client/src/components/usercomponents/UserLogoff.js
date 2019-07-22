@@ -1,8 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import utils from "../../utils/utils";
 
 export default function UserLogoff() {
-  localStorage.clear();
+  utils.clearAllAuthFromLocal();
   return (
     <div>
       <div className="container">

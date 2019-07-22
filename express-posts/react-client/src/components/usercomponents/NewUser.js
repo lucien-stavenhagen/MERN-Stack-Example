@@ -51,7 +51,7 @@ export default class NewUser extends Component {
                 />
                 <label>Password:</label>
                 <input
-                  type="text"
+                  type="password"
                   className="form-control"
                   value={this.state.password}
                   onChange={this.handlePassword}

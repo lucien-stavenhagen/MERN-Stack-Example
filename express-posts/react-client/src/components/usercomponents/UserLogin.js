@@ -21,7 +21,7 @@ export default class UserLogin extends Component {
           username: this.state.username,
           token: res.data.token
         };
-        localStorage.setItem(utils.auth_token_name, JSON.stringify(auth_data));
+        utils.saveAuthInfoToLocal(auth_data);
         this.props.history.push("/");
       })
       .catch(err => {
@@ -64,7 +64,7 @@ export default class UserLogin extends Component {
                 />
                 <label>Password:</label>
                 <input
-                  type="text"
+                  type="password"
                   className="form-control"
                   value={this.state.password}
                   onChange={this.handlePassword}

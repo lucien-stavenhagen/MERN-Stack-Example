@@ -48,10 +48,10 @@ class CreatePost extends Component {
   };
   handleSubmit = event => {
     event.preventDefault();
-    const auth_token = JSON.parse(localStorage.getItem(utils.auth_token_name));
-    if (auth_token !== null) {
+    const auth_info = utils.getTokenFromLocal();
+    if (auth_info.loggedin) {
       console.log("submitting this post: " + JSON.stringify(this.state));
-      this.createPost(auth_token.token);
+      this.createPost(auth_info.token);
       this.clearState();
     } else {
       console.log("Posting failed");

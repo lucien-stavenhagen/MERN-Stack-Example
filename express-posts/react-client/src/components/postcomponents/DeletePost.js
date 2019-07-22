@@ -6,10 +6,10 @@ import utils from "../../utils/utils";
 export default class DeletePost extends Component {
   constructor(props) {
     super(props);
-    this.proxyurl = "http://localhost:4001/api/posts";
+    this.proxyurl = `${utils.proxyurl_api}/posts`;
   }
   yesImSure = () => {
-    const auth_token = JSON.parse(localStorage.getItem(utils.auth_token_name));
+    const auth_token = utils.getTokenFromLocal();
     axios
       .delete(this.proxyurl + "/delete/" + this.props.match.params.id, {
         headers: { authorization: `Bearer ${auth_token.token}` }

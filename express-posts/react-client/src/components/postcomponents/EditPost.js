@@ -34,8 +34,8 @@ export default class EditPost extends Component {
       category: this.state.category,
       posttext: this.state.posttext
     };
-    const auth_token = JSON.parse(localStorage.getItem(utils.auth_token_name));
-    if (auth_token !== null) {
+    const auth_token = utils.getTokenFromLocal();
+    if (auth_token.loggedin) {
       axios
         .patch(this.proxyurl + "/edit/" + this.props.match.params.id, updated, {
           headers: { authorization: `Bearer ${auth_token.token}` }

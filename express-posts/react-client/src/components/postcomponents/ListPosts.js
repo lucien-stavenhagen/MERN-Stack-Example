@@ -14,8 +14,8 @@ class ListPosts extends React.Component {
     };
   }
   componentDidMount() {
-    const auth_info = JSON.parse(localStorage.getItem(utils.auth_token_name));
-    if (auth_info !== null) {
+    const auth_info = utils.getTokenFromLocal();
+    if (auth_info.loggedin) {
       this.setState({ loggedin: true, username: auth_info.username });
     } else {
       this.setState({ loggedin: false });
