@@ -52,17 +52,17 @@ class ListPosts extends React.Component {
       log_button = <Link to="/login">Login here</Link>;
       new_post_button = (
         <button className="btn btn-warning" disabled>
-          Create New Post (disabled)
+          Create New Post
         </button>
       );
       edit_post_button = (
         <button className="btn btn-primary mr-1" disabled>
-          Edit Post (disabled)
+          Edit Post
         </button>
       );
       delete_post_button = (
         <button className="btn btn-danger" disabled>
-          Delete Post (disabled)
+          Delete Post
         </button>
       );
     }

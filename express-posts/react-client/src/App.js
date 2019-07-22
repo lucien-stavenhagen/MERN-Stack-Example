@@ -13,6 +13,7 @@ import NewUser from "./components/usercomponents/NewUser";
 import LoginFailed from "./components/usercomponents/LoginFailed";
 import NewUserSuccess from "./components/usercomponents/NewUserSuccess";
 import SinglePost from "./components/postcomponents/SinglePost";
+import ProtectedRoute from "./components/protectedroute/ProtectedRoute";
 
 function App() {
   return (
@@ -21,14 +22,14 @@ function App() {
       <Route path="/login" component={UserLogin} />
       <Route path="/logoff" component={UserLogoff} />
       <Route path="/" exact component={ListPosts} />
-      <Route path="/create" component={CreatePost} />
-      <Route path="/edit/:id" component={EditPost} />
-      <Route path="/delete/:id" component={DeletePost} />
       <Route path="/single/:id" component={SinglePost} />
-      <Route path="/delconfirmed" component={DeleteConfirmed} />
-      <Route path="/editconfirmed" component={EditConfirmed} />
-      <Route path="/loginfailed" component={LoginFailed} />
       <Route path="/useraddedok" component={NewUserSuccess} />
+      <ProtectedRoute path="/create" component={CreatePost} />
+      <ProtectedRoute path="/edit/:id" component={EditPost} />
+      <ProtectedRoute path="/delete/:id" component={DeletePost} />
+      <ProtectedRoute path="/delconfirmed" component={DeleteConfirmed} />
+      <ProtectedRoute path="/editconfirmed" component={EditConfirmed} />
+      <ProtectedRoute path="/loginfailed" component={LoginFailed} />
     </Router>
   );
 
