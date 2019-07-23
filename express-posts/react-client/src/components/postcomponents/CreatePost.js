@@ -3,10 +3,12 @@ import { Link } from "react-router-dom";
 
 import axios from "axios";
 
+import utils from "../../utils/utils";
+
 class CreatePost extends Component {
   constructor(props) {
     super(props);
-    this.proxyurl = "http://localhost:4001/api/posts";
+    this.proxyurl = `${utils.proxyurl_api}/posts`;
     this.state = {
       title: "",
       author: "",
@@ -14,9 +16,11 @@ class CreatePost extends Component {
       posttext: ""
     };
   }
-  createPost = newpost => {
+  createPost = auth_token => {
     axios
-      .post(this.proxyurl + "/create", newpost)
+      .post(this.proxyurl + "/create", this.state, {
+        headers: { authorization: `Bearer ${auth_token}` }
+      })
       .then(res => console.log(res))
       .catch(err => console.log("HOMEY ERROR: " + err));
   };
@@ -44,13 +48,21 @@ class CreatePost extends Component {
   };
   handleSubmit = event => {
     event.preventDefault();
-    console.log("submitting this post: " + JSON.stringify(this.state));
-    this.createPost(this.state);
-    this.clearState();
+    const auth_info = utils.getTokenFromLocal();
+    if (auth_info.loggedin) {
+      console.log("submitting this post: " + JSON.stringify(this.state));
+      this.createPost(auth_info.token);
+      this.clearState();
+    } else {
+      console.log("Posting failed");
+    }
   };
   render() {
     return (
       <div className="container">
+        <div className="jumbotron text-center m-0">
+          <h1>Create New Post</h1>
+        </div>
         <form onSubmit={this.handleSubmit}>
           <div className="form-group">
             <label>Title:</label>

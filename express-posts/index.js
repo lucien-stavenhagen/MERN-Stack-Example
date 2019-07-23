@@ -7,9 +7,9 @@ const PORT = process.env.PORT || 4000;
 
 // connect to mongodb out in atlas
 // hoist creds out to make it easier to update
-const username = "yourusername";
-const password = "yourpassword";
-const dbname = "yourdbname";
+const username = "lstavenhagen";
+const password = "dalemace";
+const dbname = "expresstest";
 
 // connect to mongodb out on atlas
 mongoose.connect(
@@ -34,7 +34,9 @@ app.use(express.urlencoded({ extended: false }));
 // leave it wide open for now
 app.use(cors());
 
-//grab our router
+//grab our router for posts API
 app.use("/api/posts", require("./routes/posts"));
+//grab users API router
+app.use("/api/users", require("./routes/users"));
 
 app.listen(PORT, () => console.log(`listening on port ${PORT}`));
