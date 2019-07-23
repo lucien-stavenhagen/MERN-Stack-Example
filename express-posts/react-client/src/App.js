@@ -24,12 +24,12 @@ function App() {
       <Route path="/" exact component={ListPosts} />
       <Route path="/single/:id" component={SinglePost} />
       <Route path="/useraddedok" component={NewUserSuccess} />
+      <Route path="/loginfailed" component={LoginFailed} />
       <ProtectedRoute path="/create" component={CreatePost} />
       <ProtectedRoute path="/edit/:id" component={EditPost} />
       <ProtectedRoute path="/delete/:id" component={DeletePost} />
       <ProtectedRoute path="/delconfirmed" component={DeleteConfirmed} />
       <ProtectedRoute path="/editconfirmed" component={EditConfirmed} />
-      <ProtectedRoute path="/loginfailed" component={LoginFailed} />
     </Router>
   );
 
