@@ -70,7 +70,7 @@ class ListPosts extends React.Component {
       <div className="container">
         <div className="border jumbotron text-center m-0">
           <Link to="/">
-            <h1>Homey Blog</h1>
+            <h1>Welcome to a Sample Blog App</h1>
           </Link>
           {log_button}
         </div>

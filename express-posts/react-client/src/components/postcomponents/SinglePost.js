@@ -31,7 +31,7 @@ export default class SinglePost extends Component {
       <div className="container">
         <div className="border jumbotron text-center m-1">
           <Link to="/">
-            <h1>Homey Blog</h1>
+            <h1>Single Post View</h1>
           </Link>
         </div>
         <div className="border card m-1">
@@ -49,7 +49,7 @@ export default class SinglePost extends Component {
           </div>
         </div>
         <Link to="/">
-          <button className="btn btn-primary">Home</button>
+          <button className="btn btn-primary ml-1">Home</button>
         </Link>
       </div>
     );
