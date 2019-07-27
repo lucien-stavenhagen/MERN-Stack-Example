@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import utils from "../../utils/utils";
 import axios from "axios";
+import MenuBar from "../layout/MenuBar";
 
 export default class SinglePost extends Component {
   constructor(props) {
@@ -29,12 +30,11 @@ export default class SinglePost extends Component {
   render() {
     return (
       <div className="container">
-        <div className="border jumbotron text-center m-1">
-          <Link to="/">
-            <h1>Single Post View</h1>
-          </Link>
+        <MenuBar />
+        <div className="border jumbotron text-center mb-0">
+          <h1>Single Post View</h1>
         </div>
-        <div className="border card m-1">
+        <div className="border card">
           <h3 className="card-title text-center">{this.state.title}</h3>
           <div className="card-body">
             <p className="card-text">
@@ -48,9 +48,6 @@ export default class SinglePost extends Component {
             </p>
           </div>
         </div>
-        <Link to="/">
-          <button className="btn btn-primary ml-1">Home</button>
-        </Link>
       </div>
     );
   }

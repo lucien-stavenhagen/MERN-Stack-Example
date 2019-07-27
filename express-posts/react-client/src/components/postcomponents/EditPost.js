@@ -67,6 +67,9 @@ export default class EditPost extends Component {
   render() {
     return (
       <div className="container">
+        <div className="jumbotron text-center mb-1">
+          <h2>Edit post</h2>
+        </div>
         <form onSubmit={this.handleSubmit}>
           <div className="form-group">
             <label>Title:</label>

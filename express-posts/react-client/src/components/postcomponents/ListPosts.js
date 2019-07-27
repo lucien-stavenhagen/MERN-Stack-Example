@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import utils from "../../utils/utils";
+import MenuBar from "../layout/MenuBar";
 
 class ListPosts extends React.Component {
   constructor(props) {
@@ -39,9 +40,7 @@ class ListPosts extends React.Component {
           <Link to="/logoff">Logoff</Link>
         </div>
       );
-      new_post_button = (
-        <button className="btn btn-warning">Create New Post</button>
-      );
+      new_post_button = "nav-link";
       edit_post_button = (
         <button className="btn btn-primary mr-1">Edit Post</button>
       );
@@ -50,11 +49,7 @@ class ListPosts extends React.Component {
       );
     } else {
       log_button = <Link to="/login">Login here</Link>;
-      new_post_button = (
-        <button className="btn btn-warning" disabled>
-          Create New Post
-        </button>
-      );
+      new_post_button = "nav-link disabled";
       edit_post_button = (
         <button className="btn btn-primary mr-1" disabled>
           Edit Post
@@ -68,14 +63,10 @@ class ListPosts extends React.Component {
     }
     return (
       <div className="container">
+        <MenuBar />
         <div className="border jumbotron text-center m-0">
-          <Link to="/">
-            <h1>Welcome to a Sample Blog App</h1>
-          </Link>
+          <h1>Welcome to a Sample Blog App</h1>
           {log_button}
-        </div>
-        <div className="button-group btn-group-lg">
-          <Link to="/create">{new_post_button}</Link>
         </div>
         <div className="shadow card">
           {this.state.data.map(post => (
