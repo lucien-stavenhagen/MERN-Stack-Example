@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
 import utils from "../../utils/utils";
+import { Link } from "react-router-dom";
 
 export default class NewUser extends Component {
   constructor(props) {
@@ -38,6 +39,11 @@ export default class NewUser extends Component {
           <div className="card-header">
             <h2 className="card-title text-center">Blog Application</h2>
             <h4 className="card-subtitle text-center text-muted">Register</h4>
+            <Link to="/">
+              <h5 className="card-subtitle text-center text-muted mt-2">
+                Back to blog
+              </h5>
+            </Link>
           </div>
           <div className="card-body">
             <form onSubmit={this.handleSubmit}>

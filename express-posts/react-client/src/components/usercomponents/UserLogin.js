@@ -44,11 +44,15 @@ export default class UserLogin extends Component {
       <div className="container">
         <div className="card">
           <div className="card-header">
-            <h2 className="card-title text-center">Blog Application</h2>
-            <h4 className="card-subtitle text-center text-muted">Login</h4>
+            <h2 className="card-title text-center">Blog Application Login</h2>
             <Link to="/newuser">
-              <h5 className="card-subtitle text-center text-muted mt-1">
+              <h5 className="card-subtitle text-center mt-1">
                 Don't have an account?
+              </h5>
+            </Link>
+            <Link to="/">
+              <h5 className="card-subtitle text-center text-muted mt-2">
+                Back to blog
               </h5>
             </Link>
           </div>
