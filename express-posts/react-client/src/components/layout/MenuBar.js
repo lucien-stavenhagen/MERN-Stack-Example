@@ -2,6 +2,9 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import utils from "../../utils/utils";
 
+const logo = require("../../img/LSwebdevLogo.png");
+
+console.log(logo);
 export default class MenuBar extends Component {
   constructor(props) {
     super(props);
@@ -22,7 +25,7 @@ export default class MenuBar extends Component {
       <div>
         <nav className="navbar navbar-expand-md navbar-dark bg-primary">
           <Link to="/" className="navbar-brand">
-            BLOG HOME
+            <img src={logo} width="80" height="80" />
           </Link>
           <button
             className="navbar-toggler"
