@@ -32,19 +32,8 @@ class CreatePost extends Component {
       posttext: ""
     });
 
-  handleTitle = event => {
-    this.setState({ title: event.target.value });
-  };
-  handleAuthor = event => {
-    this.setState({ author: event.target.value });
-  };
-  handleCategory = event => {
-    this.setState({
-      category: event.target.value
-    });
-  };
-  handlePosttext = event => {
-    this.setState({ posttext: event.target.value });
+  handleChange = event => {
+    this.setState({ [event.target.name]: event.target.value });
   };
   handleSubmit = event => {
     event.preventDefault();
@@ -68,35 +57,39 @@ class CreatePost extends Component {
             <label>Title:</label>
             <input
               type="text"
+              name="title"
               className="form-control"
               value={this.state.title}
-              onChange={this.handleTitle}
+              onChange={this.handleChange}
             />
           </div>
           <div className="form-group">
             <label>Author:</label>
             <input
               type="text"
+              name="author"
               className="form-control"
               value={this.state.author}
-              onChange={this.handleAuthor}
+              onChange={this.handleChange}
             />
           </div>
           <div className="form-group">
             <label>Category:</label>
             <input
               type="text"
+              name="category"
               className="form-control"
               value={this.state.category}
-              onChange={this.handleCategory}
+              onChange={this.handleChange}
             />
           </div>
           <div className="form-group">
             <label>Post Text:</label>
             <textarea
+              name="posttext"
               className="form-control"
               value={this.state.posttext}
-              onChange={this.handlePosttext}
+              onChange={this.handleChange}
             />
           </div>
           <div className="form-group">
