@@ -32,7 +32,8 @@ export default class SinglePost extends Component {
       <div className="container">
         <MenuBar />
         <div className="border jumbotron text-center mb-0">
-          <h1>Single Post View</h1>
+          <Link to="/">
+          <h1>Single Post View</h1></Link>
         </div>
         <div className="border card">
           <h3 className="card-title text-center">{this.state.title}</h3>
