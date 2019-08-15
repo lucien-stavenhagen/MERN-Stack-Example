@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "dev": "nodemon index.js",
-    "client": "npm start --prefix ./react-client",
+    "client": "npm start --prefix ../react-client",
     "both": "concurrently \"npm run dev\" \"npm run client\""
   },
   "author": "LS",
